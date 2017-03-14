@@ -1,0 +1,123 @@
+#sidebar {
+  li {
+    list-style: none;
+  }
+  .widget {
+    margin-bottom: 15px
+  }
+  h3.widget-title {
+    font-family: 'Arial';
+    font-weight: bold;
+    padding: 12px 0 10px 30px;
+    margin-bottom: 0;
+    font-size: $heading-size;
+    margin-top: 0;
+    color: white;
+    text-transform: uppercase;
+    background: url('../img/bg-heading.png') no-repeat center left #0194cb;
+    position: relative;
+    &:after{
+      content: "";
+      position: absolute;
+      bottom: -7px;
+      left: 25px;
+      border-width: 7px 0 0 7px;
+      border-style: solid;
+      border-color: #0194cb transparent;
+      display: block;
+      width: 0;
+    }
+  }
+
+  .product_categories {
+    ul {
+      padding-left: 0;
+    }
+
+    .cat-item {
+      padding: 10px;
+      background-color: #E3E5E5;
+      border-bottom: white solid 1px;
+      a {
+        color: black;
+        padding-left: 10px;
+        background: url('../img/arrow.png') no-repeat center left;
+      }
+    }
+  }
+  .banner-widget {
+    .image {
+      width: 100%;
+      margin-bottom: 10px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+  }
+  .widget_customer-support-widget {
+    background-color: #e5e5e5;
+
+    .hotline {
+      text-align: center;
+      text-transform: uppercase;
+      background: url(../img/hotline-bg.png) no-repeat center center;
+      background-size: 100% 100%;
+      min-height: 100px;
+      padding-top: 75px;
+      margin: 10px 10px 0 10px;
+      .phone-hotline {
+        color: #fee901;
+        font-weight: bold;
+      }
+
+    }
+    .department-section {
+      padding: 15px 10px 0 10px;
+      border-bottom: 1px solid white;
+    }
+    .department {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: #0187b9;
+      font-size: 15px;
+    }
+    .employee {
+      font-size: 14px;
+      margin-right: 0;
+      margin-top: 10px;
+    }
+    .em_name {
+      color: #FA693B
+    }
+    .em_phone a {
+      color: black
+    }
+    .em_skype i {
+      transform: translateY(-25%);
+      font-size: 35px;
+      color: #00ABEF;
+    }
+  }
+
+  .widget_wpstatistics_widget {
+    background-color: #e3e5e5;
+    ul {
+      padding-left: 0;
+      li label{
+        font-weight: normal;
+        
+        font-size: 13px;
+      }
+      li {
+        padding: 10px;
+        border-bottom: 1px solid white;
+        .number{float: right}
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}

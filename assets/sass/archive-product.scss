@@ -1,0 +1,40 @@
+#archive-product {
+  background-color: white;
+  .list-posts {padding-top: 17px}
+  .product{
+    padding: 0px 15px 25px 15px;
+    border-bottom: none;
+    text-align: center;
+
+    .post-thumbnail img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #e5e5e5;
+      border-radius: 2px;
+
+    }
+    .product-header {
+      font-family: "Arial";
+      .entry-title a{
+        font-size: 14px;
+        font-weight: normal;
+        color: black;
+
+        text-transform: none;
+      }
+
+    }
+    .product-price {
+      color: #636363;
+      font-size: 14px;
+      
+      span{
+        color: #fe0000;
+      }
+    }
+  }
+  .pagination li{
+    margin-top: 10px;
+  }
+
+}

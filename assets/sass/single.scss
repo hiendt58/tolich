@@ -1,0 +1,87 @@
+#single, #single-product {
+  background-color: white;
+  .title{
+    border-bottom: 5px double #0194cb;
+  }
+  .content {
+    border-bottom: 3px double #e3e5e5;
+  }
+  .entry-title {
+    color: #0194cb;
+    font-size: 14px;
+    
+    font-weight: bold;
+    text-align: center;
+    margin: 20px auto;
+  }
+  article{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .entry-content p{
+    font-size: 14px;
+    
+    text-align: justify;
+    margin-bottom: 25px;
+  }
+  .entry-footer {
+    padding-bottom: 50px;
+    .author-box, p {
+      font-weight: bold;
+      padding-left: 15px;
+      padding-right: 15px;
+      font-size: 14px;
+      
+      text-align: justify;
+    }
+
+  }
+  #respond{
+    padding-top: 20px;
+    #commentform{
+      padding: 30px 20px 10px 20px;
+    }
+    textarea{
+      border-radius: 1px;
+      resize: none;
+      width: 100%;
+      height: 180px;
+      padding: 10px;
+    }
+
+    p{
+      margin-bottom: 13px;
+
+    }
+    .form-submit{
+      display: block;
+      text-align: center;
+      #submit {
+        border: none;
+        border-radius: 3px;
+        color: white;
+        background-color: #107fc9;
+        padding: 10px 20px;
+        
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+    .comment-form-author, .comment-form-email {
+      display: inline-block;
+      width: 49.4%;
+      input {
+        width: 100%;
+        font-size: 13px;
+        
+        padding: 6px 10px;
+      }
+    }
+    .comment-form-email {
+      float: right;
+    }
+  }
+
+}

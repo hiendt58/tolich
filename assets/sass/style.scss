@@ -1,0 +1,39 @@
+//Define local variables
+$primary-color: #019AD4;
+$text-color: black;
+$font: "Arial";
+$text-size: 12px;
+$heading-size: 13px;
+* {
+  font-family: $font
+}
+
+body {
+  background: url("../img/bg-home.png");
+  font-size: $text-size;
+  color: black;
+}
+
+// Define the common css codes
+ul {
+  list-style: none;
+}
+
+a:hover, a:focus {
+  text-decoration: none !important;
+}
+
+h3, h4 {
+  text-transform: uppercase;
+}
+
+
+@import "header";
+@import "footer";
+@import "archive";
+@import "sidebar";
+@import "content";
+@import "toolbar";
+@import "archive-product";
+@import "single-product";
+@import "single";

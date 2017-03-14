@@ -1,0 +1,49 @@
+.toolbar {
+
+  background-color: $primary-color;
+  ul {
+    vertical-align: middle;
+    padding: 2px;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  li {
+    li.menu-item {
+      border-left: 1px solid #0089bc;
+    }
+    float: right;
+    list-style: none;
+    a {
+      font-size: 12px;
+      font-family: "Tahoma";
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 10px 15px;
+      text-decoration: none;
+      &:hover {
+        color: yellow;
+        transition: 0.7s;
+      }
+    }
+  }
+  i.fa{
+    padding-right: 5px;
+  }
+  #menu-toolbar {
+    display: inline-block;
+  }
+  @media screen and (max-width: 480px) {
+    display: none
+  }
+
+  @media screen and (max-width: 768px) {
+    li a {
+      font-size: 10px;
+      padding: 3px 8px;
+    }
+  }
+
+}
