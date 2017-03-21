@@ -6,7 +6,7 @@ query_posts($args);
     <div id="archive-product">
         <div class="archive-title">
             <h3>
-                <?php echo get_the_terms(get_the_ID(), 'product_categories')[0]->name ?>
+                <?php echo (get_the_terms(get_the_ID(), 'product_categories')[0]->name) ?>
             </h3>
         </div>
         <div class="row list-posts">

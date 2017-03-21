@@ -107,5 +107,11 @@
     background-color: #fff;
     border: none;
   }
+  span.search-icon img{
+    transform: translateY(50%);
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 

@@ -38,7 +38,6 @@ if (!function_exists('tolich_theme_setup')) {
          */
         add_theme_support('title-tag');
 
-
         #custom logo support
         add_theme_support('custom-logo', array('height' => 45, 'width' => 'auto', 'flex-height' => true, 'flex-width' => true));
 
@@ -199,17 +198,21 @@ if (!function_exists('tolich_menu')) {
                     'fallback_cb' => 'wp_bootstrap_navwalker::fallback'
                 )
             ); ?>
-            <form id="searchform" class="navbar-form navbar-left" role="search"
-                  action="<?php echo esc_url(site_url()); ?>" method="get">
-                <div class="form-group">
-                    <input id="s" name="s" type="text" class="form-control search-field"
-                           placeholder="<?php esc_attr_e('Search &hellip;', 'tolich'); ?>"
-                           value="<?php echo esc_attr(get_search_query()); ?>">
-                </div>
-                <button id="searchsubmit" type="submit" name="submit" class="btn btn-default">
-                    <i class="fa fa-search"></i>
-                </button>
-            </form>
+<!--            <form id="searchform" class="navbar-form navbar-left" role="search"-->
+<!--                  action="--><?php //echo esc_url(site_url()); ?><!--" method="get">-->
+<!--                <div class="form-group">-->
+<!--                    <input id="s" name="s" type="text" class="form-control search-field"-->
+<!--                           placeholder="--><?php //esc_attr_e('Search &hellip;', 'tolich'); ?><!--"-->
+<!--                           value="--><?php //echo esc_attr(get_search_query()); ?><!--">-->
+<!--                </div>-->
+<!--                <button id="searchsubmit" type="submit" name="submit" class="btn btn-default">-->
+<!--                    <img src="--><?php //echo get_template_directory_uri() ?><!--/assets/img/search-icon.png">-->
+<!--                </button>-->
+<!--            </form>-->
+            <span class="search-icon">
+                <img src="<?php echo get_template_directory_uri() ?>/assets/img/search-icon.png">
+            </span>
+
         </div>
         <?php
     }
@@ -557,7 +560,13 @@ function tolich_breadcrumbs()
                 $post_type_object = get_post_type_object($post_type);
                 $post_type_archive = get_post_type_archive_link($post_type);
 
+                $term = get_the_terms(get_the_ID(), 'product_categories')[0];
+                $cat_name = $term->name;
+                $cat_link = get_term_link($term->slug, 'product_categories');
+
                 echo '<li class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $post_type_archive . '" title="' . $post_type_object->labels->name . '">' . $post_type_object->labels->name . '</a></li>';
+                echo '<li class="separator"> ' . $separator . ' </li>';
+                echo '<li class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $cat_link . '" title="' . $cat_name . '">' . $cat_name . '</a></li>';
                 echo '<li class="separator"> ' . $separator . ' </li>';
 
             }

@@ -1,15 +1,16 @@
 jQuery(document).ready(function ($) {
 
-    $('#searchform').on('hover', function () {
-        $('.form-group').toggle();
-        $('#searchsubmit').toggle();
+    // $('#searchform').on('hover', function () {
+    //     $('.form-group').toggle();
+    //     $('#searchsubmit').toggle();
+    //
+    // });
+    // $('#searchform').on('keypress', function () {
+    //     if ($this.keyCode == 13) {
+    //         $('#searchsubmit').click();
+    //     }
+    // });
 
-    });
-    $('#searchform').on('keypress', function () {
-        if ($this.keyCode == 13) {
-            $('#searchsubmit').click();
-        }
-    });
 
     // Stick the #nav to the top of the window
     var nav = $('#header .navbar');
