@@ -56,5 +56,11 @@
         </div>
     <?php } ?>
 </header>
+<div class="container">
+    <div id="content" class="row">
+        <section id="sidebar" class="col-lg-3 col-sm-3 col-xs-0">
+            <?php get_sidebar(); ?>
+        </section>
+        <section id="main-content" class="col-lg-9 col-sm-9 col-xs-12">
 
 

@@ -1,0 +1,40 @@
+.dwqa-container {
+  label[for=question_title], .dwqa-answer-form-title {
+    font-weight: bold;
+    font-size: 14px;
+    color: $primary-color;
+  }
+  input[type=submit] {
+    display: block;
+    padding: 5px 15px;
+    color: white;
+    background-color: #107fc9;
+    white-space: nowrap;
+    border-radius: 3px;
+    border: none;
+    font-size: 13px;
+  }
+  padding: 15px 20px;
+  .dwqa-question-filter, .dwqa-questions-footer, .dwqa-breadcrumbs, .dwqa-select, .dwqa-question-footer {
+    display: none;
+  }
+  .dwqa-question-item {
+    border: none;
+    border-bottom: 1px solid #e3e5e5;
+  }
+  .dwqa-question-stats span {
+    border-radius: 2px;
+  }
+  .dwqa-content-edit-form {
+    p:nth-child(4), p:nth-child(5) {
+      display: none;
+    }
+
+  }
+  textarea {
+    font-family: "Arial";
+    border-radius: 2px;
+    resize: none !important;
+  }
+  .dwqa-single-question p:nth-child(6){display: none}
+}

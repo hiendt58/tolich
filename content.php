@@ -13,6 +13,5 @@
                 <?php tolich_entry_content(); ?>
             </div>
         </div>
-
     </div>
 </article>

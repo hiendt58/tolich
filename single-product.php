@@ -1,4 +1,4 @@
-<div class="content">
+<div class="single-content">
     <div class="title">
         <h3><?php echo get_the_title() ?></h3>
     </div>
@@ -46,7 +46,7 @@
                     <div class="col-sm-3 col-xs-6">
                         <div class="product">
 
-                            <a href="<?php get_permalink() ?>" class="product-name">
+                            <a href="<?php echo get_permalink() ?>" class="product-name">
                                 <div class="product-thumbnail">
                                     <?php tolich_thumbnail('thumbnail'); ?>
                                 </div>

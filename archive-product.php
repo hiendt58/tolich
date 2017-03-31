@@ -6,10 +6,10 @@ query_posts($args);
     <div id="archive-product">
         <div class="archive-title">
             <h3>
-                <?php echo (get_the_terms(get_the_ID(), 'product_categories')[0]->name) ?>
+                <?php echo get_the_archive_title() ?>
             </h3>
         </div>
-        <div class="row list-posts">
+        <div class="list-posts">
             <?php if (have_posts()) :
             while (have_posts()) : the_post(); ?>
 
@@ -24,9 +24,3 @@ query_posts($args);
 
     </div>
 <?php
-if (is_active_sidebar('list-category')) {
-    dynamic_sidebar('list-category');
-} else {
-    _e('Đây là vùng hiển thị widget. Truy cập Appearance -> Widgets để thêm các widget mới.', 'tolich');
-}
-?>

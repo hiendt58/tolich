@@ -153,7 +153,7 @@ class Related_Posts extends WP_Widget
 
         if (!empty($title))
             echo '<div class="title"><h3 class="widget-title">'. $title .'</h3></div>';
-        echo '<div class="row">';
+        echo '<div class="row row-eq-height">';
         foreach ($arr as $cat) {
             echo '<div class="col-sm-4 col-xs-12">';
             echo '<div class="category">';
@@ -161,7 +161,7 @@ class Related_Posts extends WP_Widget
             $latest_post = new WP_Query(array(
                 'post_type' => 'post',
                 'posts_per_page' => 1,
-                'cat' => $cat
+                'cat' => $cat,
 
             ));
             echo '<div class="category-posts">';
@@ -170,7 +170,7 @@ class Related_Posts extends WP_Widget
                 $latest_post->the_post();
                 echo '<div class="latest-post">';
                 echo '<a href="' . get_permalink() . '">';
-                tolich_thumbnail('thumbnail');
+                tolich_thumbnail("thumbnail");
                 echo '<p class="item-name">' . get_the_title() . '</p>';
                 echo '</a>';
                 echo '</div>';
@@ -185,7 +185,8 @@ class Related_Posts extends WP_Widget
                 'post_type' => 'post',
                 'posts_per_page' => '3',
                 'cat' => $cat,
-                'offset' => 1
+                'offset' => 1,
+                'orderby' => 'date',
             ));
             if ($cat_recent_posts->have_posts()) {
                 while ($cat_recent_posts->have_posts()) {

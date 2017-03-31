@@ -6,8 +6,6 @@ Author: Hien Doan
 Tags: basic theme
 Textdomain: tolich
 */
-
-
 //Define local variables
 $primary-color: #019AD4;
 $text-color: black;
@@ -22,6 +20,7 @@ body {
   background: url("../img/bg-home.png");
   font-size: $text-size;
   color: black;
+  text-align: justify;
 }
 
 // Define the common css codes
@@ -47,3 +46,10 @@ h3, h4 {
 @import "archive-product";
 @import "single-product";
 @import "single";
+@import "archive-customer";
+@import "single-customer";
+@import "career";
+@import "page";
+@import "lightbox";
+@import "library";
+@import "a&q";

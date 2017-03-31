@@ -1,9 +1,10 @@
-#single, #single-product {
+#single, #single-product, #single-customer, #single-career {
+  .content{border-bottom: none}
   background-color: white;
   .title{
     border-bottom: 5px double #0194cb;
   }
-  .content {
+  .single-content {
     border-bottom: 3px double #e3e5e5;
   }
   .entry-title {
@@ -62,7 +63,7 @@
         border-radius: 3px;
         color: white;
         background-color: #107fc9;
-        padding: 10px 20px;
+        padding: 5px 15px;
         
         font-size: 13px;
         font-weight: bold;
@@ -83,5 +84,4 @@
       float: right;
     }
   }
-
 }

@@ -1,0 +1,60 @@
+
+.so-widget-sow-editor {
+  .contact-page {
+    padding: 20px 15px 0px 15px;
+    //text-align: center;
+    .form-title {
+      padding-bottom: 10px;
+      color: $primary-color;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    ul {
+      padding-left: 0
+    }
+    li {
+      line-height: 25px;
+    }
+    .wpcf7 {
+      text-align: center;
+      p:nth-child(2), p:nth-child(3) {
+        width: 49.4%;
+        display: inline-block;
+      }
+      p:nth-child(2) {
+        float: left;
+      }
+      p:nth-child(3) {
+        float: right;
+      }
+
+      input[type='text'], input[type='email'] {
+        width: 100%;
+        padding: 5px 10px;
+        border-radius: 2px;
+        //display: inline-block;
+        border: 1px solid rgb(169, 169, 169);
+      }
+      textarea {
+        border-radius: 2px;
+        resize: none;
+        width: 100%;
+        height: 180px;
+        padding: 5px 10px;
+        border: 1px solid rgb(169, 169, 169);
+      }
+      input[type='submit'] {
+        text-align: center;
+        border: none;
+        border-radius: 3px;
+        color: white;
+        background-color: #107fc9;
+        padding: 5px 15px;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

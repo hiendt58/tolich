@@ -1,12 +1,10 @@
-.blog, #archive, #archive-product {
+.blog-posts, #archive, #archive-product, #archive-customer, #archive-library {
   background-color: white;
   border-bottom: 3px double #e3e5e5;
   .list-posts {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-top: 5px
   }
   .blog-posts {
-
     font-size: 15px;
     background-color: white;
     text-align: justify;
@@ -14,16 +12,18 @@
   }
 
   article {
-    border-bottom: 1px solid #e2e2e2;
+    vertical-align: top;
     padding: 15px;
+    display: inline-block;
+    border-bottom: 1px solid #e2e2e2;
   }
   .entry-title {
+    font-size: 15px;
     color: #0194cb;
     font-weight: bold;
   }
 
   .entry-thumbnail {
-    width: 33%;
     display: inline-block;
     figure {
       margin-right: 20px;
@@ -37,15 +37,15 @@
     }
   }
   .content {
-    width: 66%;
     display: inline-block;
     vertical-align: top;
   }
   .entry-content {
+    font-size: 13px;
     a.read-more {
       margin-top: 20px;
-      display: table-caption;
-      padding: 10px 20px;
+      display: table;
+      padding: 5px 15px;
       color: white;
       background-color: #107fc9;
       white-space: nowrap;
@@ -64,6 +64,33 @@
     content: "";
     clear: both;
     display: table;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  #archive-product, #archive-customer, #archive-library {
+    article {
+      width: 49% !important;
+    }
+  }
+  .list_product_category .product, .clone_product_category .product {
+    width: 49% !important;
+  }
+}
+
+.blog-posts, #archive {
+  article {
+    width: 100%;
+  }
+  .entry-thumbnail {
+    width: 33%
+  }
+  .content {
+    width: 66%
+  }
+  @media screen and (max-width: 480px) {
+    .content{width: 65%}
   }
 
 }

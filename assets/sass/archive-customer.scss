@@ -1,0 +1,33 @@
+#archive-customer{
+  article {
+    width: 33%;
+    display: inline-block;
+    border-bottom: none;
+  }
+  img {
+    width: 100%;
+    height: 200px;
+  }
+  .entry-title a {
+    font-size: 14px;
+    font-weight: normal;
+    color: $primary-color;
+    text-transform: none;
+
+  }
+  .separator {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #e3e5e5;
+    margin: 20px auto;
+  }
+  .customer-meta {
+    div {
+      line-height: 25px;
+    }
+    i.fa {
+      padding-right: 10px;
+      color: #6b6b6b
+    }
+  }
+}

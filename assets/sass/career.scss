@@ -1,0 +1,16 @@
+#single-career {
+  ul{
+    padding-left: 0;
+  }
+  .career-content{
+    padding: 10px 15px;
+  }
+  .entry-footer{
+    display: none;
+  }
+  .meta-area {
+    label {
+      color: $primary-color;
+    }
+  }
+}

@@ -11,6 +11,15 @@ jQuery(document).ready(function ($) {
     //     }
     // });
 
+    $("label[for='_dwqa_anonymous_email'").text("Email");
+    $("label[for='_dwqa_anonymous_name'").text("Họ tên");
+    $('.dwqa-content-edit-form label[for=question_title]').text("Tiêu đề câu hỏi");
+    $('#question-title').attr("placeholder", 'Tiêu đề câu hỏi');
+    $("input[name='dwqa-question-submit']").val('Gửi câu hỏi');
+    $("input[name='submit-answer']").val('Gửi câu trả lời');
+    $("input[name='dwqa-edit-question-submit']").val('Lưu thay đổi');
+    $('.wp-editor-area').attr('placeholder', 'Nhập câu hỏi của bạn');
+    $('.dwqa-answer-form-title').text("Câu trả lời của bạn");
 
     // Stick the #nav to the top of the window
     var nav = $('#header .navbar');
@@ -32,23 +41,12 @@ jQuery(document).ready(function ($) {
                 left: nav.offset().left,
                 width: nav.width()
             });
-            $('.navbar-brand > img').css({
-                height: '100%',
-                top: 0,
-            });
-            // $('#header .navbar-default .navbar-collapse').css({transform: 'translateY(30%)'});
             isFixed = true;
         } else if (!shouldBeFixed && isFixed) {
             nav.css({
 
                 position: 'relative'
             });
-            $('.navbar-brand > img').css({
-                height: '150%',
-                bottom: '0',
-                top: 'auto'
-            })
-            // $('#header .navbar-default .navbar-collapse').css({transform: 'translateY(15%)'});
             isFixed = false;
         }
     });
@@ -65,8 +63,6 @@ jQuery(document).ready(function ($) {
         autoplay: true,
         autoplayTimeout: 1000,
         autoplayHoverPause: true,
-        // center: true,
-        // stagePadding: 30,
         dots: false,
         responsiveClass: true,
         responsive: {
@@ -89,8 +85,8 @@ jQuery(document).ready(function ($) {
     var height = $('.owl-item img').width();
     $('.owl-item img').css({'height': height + 'px'});
 
-   // change comment form template
-    $(".comment-form-comment").each(function() {
+    // change comment form template
+    $(".comment-form-comment").each(function () {
         var comment_form = $(this);
         var mail_form = $('.comment-form-email');
         comment_form.insertAfter(mail_form);
@@ -98,6 +94,13 @@ jQuery(document).ready(function ($) {
 
     var img_height = $('.post-thumbnail.image img').height();
     $('.post-thumbnail.default img').height(img_height);
+
+    $('img.alignnone').each(function () {
+        $src = $(this).attr('src');
+        $element = '<a href="' + $src + '" data-lightbox="roadtrip"></a>';
+        $(this).wrap($element);
+
+    })
 
 });
 

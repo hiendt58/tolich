@@ -1,3 +1,6 @@
+</section>
+</div>
+</div>
 <footer id="footer">
     <div class="footer-carousel container">
         <?php dynamic_sidebar('carousel-sidebar'); ?>

@@ -1,8 +1,8 @@
-#archive-product {
+#archive-product, .widget_siteorigin-panels-postloop {
   background-color: white;
-  .list-posts {padding-top: 17px}
-  .product{
-    padding: 0px 15px 25px 15px;
+  .product {
+    width: 24.6%;
+    display: inline-block;
     border-bottom: none;
     text-align: center;
 
@@ -15,7 +15,7 @@
     }
     .product-header {
       font-family: "Arial";
-      .entry-title a{
+      .entry-title a {
         font-size: 14px;
         font-weight: normal;
         color: black;
@@ -27,14 +27,24 @@
     .product-price {
       color: #636363;
       font-size: 14px;
-      
-      span{
+
+      span {
         color: #fe0000;
       }
     }
   }
-  .pagination li{
+  .pagination li {
     margin-top: 10px;
   }
 
+}
+
+.widget_siteorigin-panels-postloop {
+  .panel-widget-style {
+    text-align: left !important;
+  }
+  article {
+    vertical-align: top;
+    padding: 15px;
+  }
 }

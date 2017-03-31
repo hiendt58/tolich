@@ -184,24 +184,23 @@ class List_Product_Category extends WP_Widget
                 ),
             ));
             if ($cat_recent_posts->have_posts()) {
-                echo "<div class='row'>";
+                
                 echo "<div class='products'>";
 
                 while ($cat_recent_posts->have_posts()) {
 
                     $cat_recent_posts->the_post();
-                    echo '<div class="col-sm-3 col-xs-6">';
+                   
                     echo '<div class="product">';
                     echo '<a href="' . get_permalink() . '" class="product-name">';
                     tolich_thumbnail("thumbnail");
                     echo get_the_title();
                     echo '</a>';
                     echo '</div>';
-                    echo '</div>';
-
+                 
                 }
                 echo "</div>";
-                echo "</div>";
+                
             }
             echo '</div>';
             wp_reset_postdata();

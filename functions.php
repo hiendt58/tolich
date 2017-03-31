@@ -130,6 +130,60 @@ if (!function_exists('tolich_theme_setup')) {
         );
 
         register_taxonomy('product_categories', 'products', $args);
+
+        register_post_type('careers',
+            array(
+                'labels' => array(
+                    'name' => __('Tuyển dụng', 'tolich'),
+                    'singular_name' => __('Tuyển dụng', 'tolich'),
+                    'all_items' => __('Tất cả thông tin'),
+                    'add_new' => __('Thêm mới'),
+                    'update_item' => __('Cập nhật'),
+                    'search_items' => __('Tìm kiếm'),
+                    'not_found' => __('Không tìm thấy.'),
+                    'not_found_in_trash' => __('Không tìm thấy trong thùng rác.'),
+                ),
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => 'tuyen-dung'),
+                'supports' => array('title', 'thumbnail', 'editor')
+            ));
+
+        register_post_type('customers',
+            array(
+                'labels' => array(
+                    'name' => __('Khách hàng', 'tolich'),
+                    'singular_name' => __('Khách hàng', 'tolich'),
+                    'all_items' => __('Tất cả khách hàng'),
+                    'add_new' => __('Thêm khách hàng'),
+                    'update_item' => __('Cập nhật'),
+                    'search_items' => __('Tìm kiếm'),
+                    'not_found' => __('Không tìm thấy.'),
+                    'not_found_in_trash' => __('Không tìm thấy trong thùng rác.'),
+                ),
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => 'khach-hang'),
+                'supports' => array('title', 'thumbnail', 'editor')
+            ));
+        register_post_type('library',
+            array(
+                'labels' => array(
+                    'name' => __('Thư viện', 'tolich'),
+                    'singular_name' => __('Thư viện', 'tolich'),
+                    'all_items' => __('Tất cả bài viết'),
+                    'add_new' => __('Thêm bài viết'),
+                    'update_item' => __('Cập nhật'),
+                    'search_items' => __('Tìm kiếm'),
+                    'not_found' => __('Không tìm thấy.'),
+                    'not_found_in_trash' => __('Không tìm thấy trong thùng rác.'),
+                ),
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => 'thu-vien'),
+                'supports' => array('title', 'thumbnail', 'editor')
+            ));
+
     }
 
     add_action('init', 'tolich_theme_setup');
@@ -198,20 +252,6 @@ if (!function_exists('tolich_menu')) {
                     'fallback_cb' => 'wp_bootstrap_navwalker::fallback'
                 )
             ); ?>
-<!--            <form id="searchform" class="navbar-form navbar-left" role="search"-->
-<!--                  action="--><?php //echo esc_url(site_url()); ?><!--" method="get">-->
-<!--                <div class="form-group">-->
-<!--                    <input id="s" name="s" type="text" class="form-control search-field"-->
-<!--                           placeholder="--><?php //esc_attr_e('Search &hellip;', 'tolich'); ?><!--"-->
-<!--                           value="--><?php //echo esc_attr(get_search_query()); ?><!--">-->
-<!--                </div>-->
-<!--                <button id="searchsubmit" type="submit" name="submit" class="btn btn-default">-->
-<!--                    <img src="--><?php //echo get_template_directory_uri() ?><!--/assets/img/search-icon.png">-->
-<!--                </button>-->
-<!--            </form>-->
-            <span class="search-icon">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/img/search-icon.png">
-            </span>
 
         </div>
         <?php
@@ -303,12 +343,8 @@ if (!function_exists('tolich_thumbnail')) {
     function tolich_thumbnail($size)
     {
         // Only show thumbnail with the post without password
-        if (!is_single() && has_post_thumbnail() || has_post_format('image')) : ?>
-            <figure class="post-thumbnail image"><?php the_post_thumbnail($size); ?></figure>
-        <?php else: ?>
-            <figure class="post-thumbnail default"><img
-                        src="<?php echo get_template_directory_uri() ?>/assets/img/default.png">
-            </figure>
+        if (has_post_thumbnail() || has_post_format('image')) : ?>
+            <figure class="post-thumbnail image"><?php echo the_post_thumbnail($size); ?></figure>
         <?php endif;
 
     }
@@ -462,8 +498,8 @@ if (!function_exists('tolich_entry_tag')) {
  **/
 function tolich_styles()
 {
-    wp_register_style('main-style', get_template_directory_uri() . '/style.css', 'all');
-    wp_enqueue_style('main-style');
+//    wp_register_style('main-style', get_template_directory_uri() . '/style.css', 'all');
+//    wp_enqueue_style('main-style');
     wp_register_style('custom-style', get_template_directory_uri() . '/assets/css/style.css', 'all');
     wp_enqueue_style('custom-style');
 
@@ -479,6 +515,10 @@ function tolich_styles()
     wp_enqueue_style('owl-carousel-min');
     wp_register_style('owl-carousel-default', get_template_directory_uri() . '/assets/owlcarousel/owl.theme.default.min.css', 'all');
     wp_enqueue_style('owl-carousel-default');
+
+    //lightbox
+    wp_register_style('lightbox', get_template_directory_uri() . '/assets/lightbox/css/lightbox.css');
+    wp_enqueue_style('lightbox');
 }
 
 add_action('wp_enqueue_scripts', 'tolich_styles');
@@ -496,6 +536,9 @@ function tolich_scripts()
     // JS for Owl Carousel
     wp_register_script('owl-script', get_template_directory_uri() . '/assets/owlcarousel/owl.carousel.min.js', array('jquery'));
     wp_enqueue_script('owl-script');
+    // JS for Lightbox
+    wp_register_script('light-box', get_template_directory_uri() . '/assets/lightbox/js/lightbox.js', array('jquery'));
+    wp_enqueue_script('light-box');
 }
 
 add_action('wp_enqueue_scripts', 'tolich_scripts');
@@ -566,8 +609,11 @@ function tolich_breadcrumbs()
 
                 echo '<li class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $post_type_archive . '" title="' . $post_type_object->labels->name . '">' . $post_type_object->labels->name . '</a></li>';
                 echo '<li class="separator"> ' . $separator . ' </li>';
-                echo '<li class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $cat_link . '" title="' . $cat_name . '">' . $cat_name . '</a></li>';
-                echo '<li class="separator"> ' . $separator . ' </li>';
+                if ($cat_name) {
+                    echo '<li class="item-cat item-custom-post-type-' . $post_type . '"><a class="bread-cat bread-custom-post-type-' . $post_type . '" href="' . $cat_link . '" title="' . $cat_name . '">' . $cat_name . '</a></li>';
+                    echo '<li class="separator"> ' . $separator . ' </li>';
+                }
+
 
             }
 
@@ -775,8 +821,8 @@ add_filter('excerpt_length', 'custom_excerpt_length', 999);
 // Enable shortcodes in text widgets
 add_filter('widget_text', 'do_shortcode');
 
-if (!function_exists('tolich_post_meta')) {
-    function tolich_post_meta()
+if (!function_exists('tolich_product_meta')) {
+    function tolich_product_meta()
     {
         ?>
         <ul class="post_meta">
@@ -809,6 +855,94 @@ if (!function_exists('tolich_post_meta')) {
     }
 }
 
+if (!function_exists('tolich_customer_meta')) {
+    function tolich_customer_meta()
+    {
+        ?>
+        <ul class="customer_meta">
+            <li class="meta">
+                <label><?php _e("Thời gian: ", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'thời_gian')[0]) ?></span>
+            </li>
+            <li class="meta">
+                <label><?php _e("Địa chỉ trụ sở chính: ", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'địa_chỉ')[0]) ?></span>
+            </li>
+            <li class="meta">
+                <label><?php _e("Điện thoại:", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'điện_thoại')[0]) ?></span>
+            </li>
+            <li class="meta">
+                <label><?php _e("Email:", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'email')[0]) ?></span>
+            </li>
+            <li class="meta">
+                <?php $url = get_post_meta(get_the_ID(), 'website')[0] ?>
+
+                <label><?php _e("Website:", "tolich") ?></label>
+                <a href="<?php echo $url ?>">
+                    <span><?php echo $url ?></span>
+                </a>
+
+            </li>
+        </ul>
+        <?php
+    }
+}
+
+if (!function_exists('tolich_career_meta')) {
+    function tolich_career_meta()
+    {
+        ?>
+        <ul class="career-meta">
+            <li class="meta">
+                <label><?php _e("Số lượng: ", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'số_lượng')[0]) ?></span>
+            </li>
+            <li class="meta">
+                <label><?php _e("Cấp bậc: ", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'cấp_bậc')[0]) ?></span>
+            </li>
+            <li class="meta">
+                <label><?php _e("Loại hình công việc:", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'loại_hình_công_việc')[0]) ?></span>
+            </li>
+            <li class="meta">
+                <label><?php _e("Ngành nghề:", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'ngành_nghề')[0]) ?></span>
+            </li>
+            <li class="meta">
+                <label><?php _e("Nơi làm việc:", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'nơi_làm_việc')[0]) ?></span>
+            </li>
+            <li class="meta">
+                <label><?php _e("Mức lương:", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'mức_lương')[0]) ?></span>
+            </li>
+
+            <li class="meta-area">
+                <label><?php _e("Mô tả công việc:", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'mô_tả_công_việc')[0]) ?></span>
+            </li>
+            <li class="meta-area">
+                <label><?php _e("Quyền lợi:", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'quyền_lợi')[0]) ?></span>
+            </li>
+            <li class="meta-area">
+                <label><?php _e("Yêu cầu công việc:", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'yêu_cầu_công_việc')[0]) ?></span>
+            </li>
+            <li class="meta">
+                <label><?php _e("Hồ sơ:", "tolich") ?></label>
+                <span><?php echo(get_post_meta(get_the_ID(), 'hồ_sơ')[0]) ?></span>
+            </li>
+
+        </ul>
+        <?php
+    }
+}
+
 include 'inc/widgets/list-products-category.php';
 include 'inc/widgets/related-posts.php';
 include 'inc/widgets/product-categories.php';
+include 'inc/widgets/clone-category.php';
